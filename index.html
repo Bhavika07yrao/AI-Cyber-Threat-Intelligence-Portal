@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AI Cyber-Threat Intelligence Portal</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+<h1>🛡 AI Cyber-Threat Intelligence Portal</h1>
+</header>
+
+<nav>
+<button onclick="showTab('dashboard')">Dashboard</button>
+<button onclick="showTab('log')">Threat Log</button>
+</nav>
+
+<section id="dashboard" class="tab active">
+
+<div class="kpis">
+<div class="card"><h3>Total Threats</h3><p id="totalThreats">0</p></div>
+<div class="card"><h3>Critical Alerts</h3><p id="criticalCount">0</p></div>
+<div class="card"><h3>Industries Impacted</h3><p id="industryCount">0</p></div>
+</div>
+
+<div class="chart-section">
+<canvas id="threatPie"></canvas>
+<canvas id="threatLine"></canvas>
+</div>
+
+<div class="insight" id="aiInsight">
+AI Insight: Waiting for data...
+</div>
+
+</section>
+
+<section id="log" class="tab">
+
+<div class="filters">
+<select id="filterType" onchange="renderLog()">
+<option value="All">All Types</option>
+</select>
+
+<select id="filterSeverity" onchange="renderLog()">
+<option value="All">All Severity</option>
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+<option>Critical</option>
+</select>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Type</th>
+<th>Industry</th>
+<th>Severity</th>
+<th>Score</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody id="logBody"></tbody>
+</table>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
